@@ -27,7 +27,6 @@
     }
 
     /* Изменение стиля ссылок в меню */
-
         .links-menu-style{ /* = Это основной стиль для ссылок меню */
             color: #4a4a4a;
             font-weight: bolder;
@@ -52,26 +51,19 @@
             font-size: 11pt;
         }
         #hover-sale-style:link{ 
-            transition: .3s ease; /**Плавность появления подчеркивания**/
+            transition: .3s ease;
             text-decoration: dotted; 
         }
         #hover-sale-style:hover{
-            border-bottom: red 4px solid; /**Стиль нижнего подчеркивания**/
+            border-bottom: red 4px solid;
             padding-bottom: 6px;
         }
     /* Конец изменения стиля ссылок в меню */
 
-    #line-advert-style{
-        color:white;
-    }
-    #winter-sales{
-        font-weight: bold;
-        font-size: 11pt;
-    }
 /* Конец стилизации ссылок */
 
 
-/* Изменение стиля выбора */
+/* Изменение стиля выбора региона*/
     #select-decoration{
         font-weight: lighter;
         border-style: none;
@@ -82,13 +74,22 @@
     }
 /* Конец изменения стиля выбора */
 
-#line-header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #740C0B;
-    height: 35px;
-}
+/* Оформление линии "Зимняя распродажа" */
+    #line-header{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #740C0B;
+        height: 35px;
+    }
+    #line-advert-style{
+        color:white;
+    }
+    #winter-sales{
+        font-weight: bold;
+        font-size: 11pt;
+    }
+/* КОнец оформления линии */
 
 #search{
     border: 0;
@@ -96,4 +97,9 @@
     font-family: "Main-text";
     width: auto;
     border-radius: 4px;
+}
+
+.card-link-style{
+    height: 115pt;
+    text-align: center;
 }
