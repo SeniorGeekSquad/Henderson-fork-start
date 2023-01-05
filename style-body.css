@@ -179,3 +179,47 @@
         font-weight: bold;
     }
 /* Конец блока стилизации фото-галереи */
+
+/* Стилизация ссылки "Твой онлайн-стилист" */
+    .your-online-stylist{
+        color:#4a4a4a;
+        font-size: x-large;
+        font-weight: bold;
+        position: relative;
+        padding-bottom: 10px;
+    }
+    .your-online-stylist::before{
+        position: absolute;
+        content: "";
+        width: 25px;
+        height: 3px;
+        background: #e65044;
+        left: 50%;
+        bottom: 6px;
+
+    }
+    .your-online-stylist:hover{
+        color:#4a4a4a;
+    }
+/* Конец стилизации ссылки "Твой онлайн-стилист" */
+
+
+/* Блок стилизации nav-tabs */
+    .nav-links-style{
+        color: #333232;
+        font-weight: medium;
+    }
+    .nav-links-style:hover{
+        color: #e65044;
+    }
+    .nav-link.active{
+        color: var(--bs-nav-tabs-link-active-color);
+    }
+    .nav-tabs-active-style{
+        --bs-nav-tabs-link-active-color: #e65044;
+    }
+    .nav-tabs-line-style{
+        --bs-nav-tabs-border-width: 0px;
+        border-bottom: var(--bs-nav-tabs-border-width) none;
+    }
+/* Конец блока стилизации nav-tabs */
