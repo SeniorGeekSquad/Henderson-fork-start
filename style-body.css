@@ -223,3 +223,12 @@
         border-bottom: var(--bs-nav-tabs-border-width) none;
     }
 /* Конец блока стилизации nav-tabs */
+
+
+.footer-text-h6-style{
+    color: white;
+}
+.footer-text-size{
+    font-size: smaller;
+    color:#a5b1ba!important;
+}
