@@ -40,7 +40,7 @@
             <a class="links-decoration liks-style-header" href=""><span class="word-spacing">Обратная связь</span></a> <a class="links-decoration liks-style-header" href="">Карьера</a> 
           </div>
           <div>
-            <span class="word-spacing"><a class="links-decoration liks-style-header" href="">Войти</a> | <a class="links-decoration liks-style-header" href="">Зарегистрироваться</a></span> 
+            <span class="word-spacing"><a class="links-decoration liks-style-header" href="" data-bs-toggle="modal" data-bs-target="#modalSignin">Войти</a> | <a class="links-decoration liks-style-header" href="" data-bs-toggle="modal" data-bs-target="#modalReg">Зарегистрироваться</a></span> 
             <span class="word-spacing"><a href=""><img src="img/heart.png" width="21" height="21"></a></span> <a href=""><img src="img/box.png" width="21" height="21"></a> 
           </div>
         </div>
@@ -72,7 +72,113 @@
           </div>
         </div>
       </div>  
-    </div>   
+    </div>
+    
+    <form action="index.html" name="form_reg">
+      <div class="modal modal-signin fade" tabindex="-1" role="dialog" id="modalReg">
+        <div class="modal-dialog">
+          <div class="modal-content rounded-4 shadow">
+            <div class="modal-header p-5 pb-4 border-bottom-0">
+              <!-- <h1 class="modal-title fs-5" >Modal title</h1> -->
+                <h1 class="fw-bold mb-0 fs-2" style="color: rgb(76, 74, 74);">Зарегистрироваться</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-5 pt-0">
+              <form class="">
+                <div class="form-floating mb-3">
+                  <input type="email" class="form-control rounded-3" value="" name="user_email" id="floatingInput" placeholder="name@example.com" required>
+                  <label for="floatingInput">Email/Телефон</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="password" class="form-control rounded-3" value="" name="user_password" id="floatingPassword" placeholder="Password" required>
+                  <label for="floatingPassword">Пароль</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="password" class="form-control rounded-3" value="" name="user_password_repeat" id="floatingPassword" placeholder="Password" required>
+                  <label for="floatingPassword">Повторите пароль</label>
+                </div>
+                <button class="w-100 mb-2 btn btn-lg rounded-3 btn-secondary" id="btn" type="submit" onclick="reg()">Зарегистрироваться</button>
+                <small class="text-muted">Нажимая зарегистрироваться вы соглашаетесь с условиями использования</small>
+                <hr class="my-4">
+                <h2 class="fs-5 fw-bold mb-3">Регистрация через социальные сети</h2>
+                <button class="w-100 py-2 mb-2 btn btn-outline-info rounded-3" type="submit">
+                  <svg class="bi me-1" width="16" height="16"><use xlink:href="#twitter"/></svg>
+                  Зарегистрироваться через Twitter
+                </button>
+                <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="submit">
+                  <svg class="bi me-1" width="16" height="16"><use xlink:href="#facebook"/></svg>
+                  Зарегистрироваться через Facebook
+                </button>
+                <button class="w-100 py-2 mb-2 btn btn-outline-dark rounded-3" type="submit">
+                  <svg class="bi me-1" width="16" height="16"><use xlink:href="#github"/></svg>
+                  Зарегистрироваться через GitHub
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <form action="index.html" name="form_login">
+      <div class="modal fade" id="modalSignin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <h1 class="fw-bold mb-0 fs-2" style="color: rgb(76, 74, 74);">Войти</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body mx-3">
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control rounded-3" value="" name="user_email" id="floatingInput" placeholder="name@example.com" required>
+                <label for="floatingInput">Email/Телефон</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control rounded-3" value="" name="user_password" id="floatingPassword" placeholder="Password" required>
+                <label for="floatingPassword">Пароль</label>
+              </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+              <button class="w-100 mb-2 btn btn-lg rounded-3 btn-secondary" id="btn" type="submit" onclick="login()">Войти</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    
+    <script>
+      function reg(){
+        let form = document.forms.form_reg;
+  
+        let email = form.user_email.value;
+        let password = form.user_password.value;
+        let re_password = form.user_password_repeat.value;
+        
+        if (re_password != password){
+          alert("Пароли не совпадают!");
+        }else if (password == '' || re_password == ''){
+          alert('Пожалуйста, укажите все необходимые данные!');
+        }else if(re_password == password){
+          alert('Вы успешно зарегистрировались!');
+          sessionStorage.setItem('user_email', email);
+          sessionStorage.setItem('user_password', password)
+        };
+      }
+
+      function login(){
+        let form = document.forms.form_login;
+
+        let check_email = form.user_email.value;
+        let check_password = form.user_password.value;
+
+        if (sessionStorage.user_email == check_email && sessionStorage.user_password == check_password){
+          alert('Вы успешно вошли!');
+        }else{
+          alert('Неверный логин или пароль!');
+        };
+      }
+    </script>
+
   </header>
   
   <div class="container">
@@ -469,5 +575,6 @@
       <p class="text-muted">&copy; 2022</p>
     </footer>
   </div>
+
 </body>
 </html>

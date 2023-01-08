@@ -1,12 +1,14 @@
-/* Шрифты */
+/* Стилизация всего тела страницы */
     body{
         font-family: "Main-text";
+        background-image: url("img/body-background-img.jpg");
+        background-repeat: repeat;
     }
     @font-face {
         font-family: "Main-text";
         src: url(fonts/Jost-VariableFont_wght.ttf);
     }
-/* Конец шрифтов */
+/* Конец стилизации всего тела страницы */
 
 
 /* Блок стилизации ссылок */
